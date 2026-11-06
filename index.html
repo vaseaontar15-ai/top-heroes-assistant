@@ -1,1 +1,71 @@
 
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Top Heroes Assistant</title>
+<style>
+body{font-family:Arial;background:#101827;color:white;padding:20px}
+section{background:#202d43;padding:18px;margin:15px 0;border-radius:14px}
+input{padding:10px;width:90%;margin:6px 0;border-radius:8px}
+button{padding:12px;background:#f6c453;border:0;border-radius:8px;font-weight:bold}
+a{color:#f6c453}
+</style>
+</head>
+<body>
+<h1>⚔️ Top Heroes Assistant</h1>
+<p>Asistent pentru dezvoltare, eroi și bonusuri</p>
+
+<section>
+<h2>⏱ Calculator accelerări</h2>
+<p>Minute rămase:</p>
+<input id="time" type="number" value="120">
+<p>Minute de accelerări disponibile:</p>
+<input id="boost" type="number" value="60">
+<button onclick="speed()">Calculează</button>
+<p id="result"></p>
+</section>
+
+<section>
+<h2>🧩 Fragmente eroi</h2>
+<p>Fragmente necesare:</p>
+<input id="need" type="number" value="100">
+<p>Fragmente disponibile:</p>
+<input id="have" type="number" value="35">
+<button onclick="hero()">Calculează</button>
+<p id="heroResult"></p>
+</section>
+
+<section>
+<h2>🎁 Bonusuri oficiale</h2>
+<p>Verifică recompensele zilnice și codurile promoționale.</p>
+<a href="https://store.topheroes.com/">Magazinul oficial Top Heroes</a>
+</section>
+
+<section>
+<h2>📋 Activități zilnice</h2>
+<label><input type="checkbox"> Recompense zilnice</label>
+<label><input type="checkbox"> Construcții</label>
+<label><input type="checkbox"> Cercetare</label>
+<label><input type="checkbox"> Antrenare trupe</label>
+<label><input type="checkbox"> Evenimente</label>
+</section>
+
+<script>
+function speed(){
+let t=Number(document.getElementById("time").value);
+let b=Number(document.getElementById("boost").value);
+document.getElementById("result").innerText=
+b>=t?"Ai suficiente accelerări!":"Mai ai nevoie de "+(t-b)+" minute.";
+}
+function hero(){
+let n=Number(document.getElementById("need").value);
+let h=Number(document.getElementById("have").value);
+document.getElementById("heroResult").innerText=
+"Mai ai nevoie de "+Math.max(0,n-h)+" fragmente.";
+}
+</script>
+</body>
+</html>
+
